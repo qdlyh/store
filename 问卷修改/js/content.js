@@ -31,9 +31,9 @@ opt.default = {
     onSlideChangeEnd: function(swiper){
       var currentSlide = $("#swiper_wrapper").find(".swiper-slide").eq(swiper.activeIndex);
       if(typeof(currentSlide.attr("done")) == "undefined"){
-        swiper.lockSwipeToNext();
+        swiper.lockSwipeToNext();  //锁定
       }else{
-        swiper.unlockSwipeToNext();
+        swiper.unlockSwipeToNext();  //解锁
       }
     }
   });

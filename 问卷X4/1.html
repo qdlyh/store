@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+
+<div>
+<input type="text" name="sefen" /><input type="radio" name="zonglian" value="1" />
+<input type="text" name="sefen" /><input type="radio" name="zonglian" value="2"/>
+<input type="text" name="sefen" /><input type="radio" name="zonglian" value="3"/>
+<input type="text" name="sefen" /><input type="radio" name="zonglian" value="4"/>
+<!-- 后面还会添加N个文本框 -->
+</div>
+
+	<script src="js/jquery.js"></script>
+<script>
+var selian = $("input[type='radio'],input[type='checkbox']")
+var a = 0;
+for(var i=0; i<selian.length; i++){
+a+=parseInt(selian[i].value);
+console.log(a)
+}
+</script>
+</body>
+</html>

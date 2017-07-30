@@ -90,12 +90,15 @@ html {
   text-align: left;
 }
 
-.answer-content {
+.answer-content,
+.answer-checkbox
+{
   display: inline-block;
   width: 100%;
   text-align: left;
   border-radius: 5px;
   line-height: 2.2rem;
+  position: relative;
   margin: 5px 0 5px 0;
   padding: 10px 15px;
   background-color: #dbf1e9;
