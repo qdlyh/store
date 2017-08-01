@@ -29,6 +29,9 @@ html {
 .swiper-slide{
   overflow: auto;
 }
+::-webkit-scrollbar {
+     display: none;/*隐藏滚轮*/
+}
 .my-slide{           /* js创建的div，li的父表标签 */
   margin-bottom: 50px;
 }

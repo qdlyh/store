@@ -52,6 +52,31 @@ $("body").on("click", ".answer-content", function () {
     }
   }
 });
+
+  // 多选点击
+  $("body").on("click", ".answer-checkbox", function() {
+    var _this = $(this);
+    var currentSlide = _this.parents(".swiper-slide");
+    var subBtn = currentSlide.find(".checkbox-btn");
+    currentIndex = mySwiper.activeIndex;//点击的索引
+    // 判断当前slide里面的多选是否有选中的值，没有则return
+    var checkbox = _this.parents(".swiper-slide").find("input[type='checkbox']");
+    var ifCheck = false;
+    setTimeout(function(){
+      $.each(currentSlide.find('input:checkbox'),function(){
+      if(this.checked){//如果有多选有一个被选了，则给ifCheck赋值为true
+        ifCheck = true;
+      }
+    });
+      if(ifCheck){
+        subBtn.text('选好了，下一题');
+      }else{
+        subBtn.text('还没有选哦');
+      }
+    },100);
+  });
+
+
 // 多选框
 function checkboxPage(self) { //参数是this
   var _this = $(self); // 获取点击的对象本身
