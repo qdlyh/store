@@ -23,8 +23,7 @@
 		top: 0;
 		bottom: 0;
 		background: #ECECEC;
-		overflow: scroll;
-		/* overflow: auto; */
+		overflow: auto;
 	}
 
 	#item_one {
