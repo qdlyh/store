@@ -28,7 +28,7 @@
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
-					<input id="radio1-1" type="radio" name="radio1" value="0"><label for="radio1-1" class="answer-content">男</label>
+					<input id="radio1-1" type="radio" name="radio1" value="0"><label for="radio1-1" class="answer-content" go-page="29">男</label>
 				</div>
 				<div class="answer-item">
 					<input id="radio1-2" type="radio" name="radio1" value="0"><label for="radio1-2" class="answer-content">女</label>
@@ -760,22 +760,16 @@
 			<div class="item-top">
 				<div class="item-box">
 					<span class="img-doc"></span>
-					<span class="question">采用这些方法之后,效果如何？</span>
+					<span class="question">如果你还尝试过其他方法,可填写在这里。</span>
 				</div>
 				<p class="question-num"><i>30</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
-					<input id="radio30-1" type="radio" name="radio30" value="0"><label for="radio30-1" class="answer-content">症状减轻/消失</label>
+					<textarea class="textarea" placeholder="请填写在这里" name="radio30"></textarea>
 				</div>
-				<div class="answer-item">
-					<input id="radio30-2" type="radio" name="radio30" value="5"><label for="radio30-2" class="answer-content">没有什么变化</label>
-				</div>
-				<div class="answer-item">
-					<input id="radio30-3" type="radio" name="radio30" value="20"><label for="radio30-3" class="answer-content">症状恶化</label>
-				</div>
-				<div class="answer-item">
-					<input id="radio30-4" type="radio" name="radio30" value="0"><label for="radio30-4" class="answer-content">我没有采用，不知道效果</label>
+				<div class="btn-box">
+					<div class="answer-content">下一题</div>
 				</div>
 			</div>
 		</div>
@@ -784,16 +778,22 @@
 			<div class="item-top">
 				<div class="item-box">
 					<span class="img-doc"></span>
-					<span class="question">如果你还尝试过其他方法,可填写在这里。</span>
+					<span class="question">采用这些方法之后,效果如何？</span>
 				</div>
 				<p class="question-num"><i>31</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
-					<textarea class="textarea" placeholder="请填写在这里" name="radio31"></textarea>
+					<input id="radio31-1" type="radio" name="radio31" value="0"><label for="radio31-1" onclick="submit()">症状减轻/消失</label>
 				</div>
-				<div class="btn-box">
-					<div onclick="submit()">提交答卷</div>
+				<div class="answer-item">
+					<input id="radio31-2" type="radio" name="radio31" value="5"><label for="radio31-2" onclick="submit()">没有什么变化</label>
+				</div>
+				<div class="answer-item">
+					<input id="radio31-3" type="radio" name="radio31" value="20"><label for="radio31-3" onclick="submit()">症状恶化</label>
+				</div>
+				<div class="answer-item">
+					<input id="radio31-4" type="radio" name="radio31" value="0"><label for="radio31-4" onclick="submit()">我没有采用，不知道效果</label>
 				</div>
 			</div>
 		</div>

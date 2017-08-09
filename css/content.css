@@ -24,7 +24,7 @@
 		top: 0;
 		bottom: 0;
 		background: #ECECEC;
-		overflow: auto;
+		/* overflow: auto; */
 	}
 
 	#item_one {
@@ -78,8 +78,8 @@
 		font-size: 28px;
 		color: #333333;
 		margin-right: 32px;
-		height: 72px;
-		line-height: 72px;
+		height: 36px;
+		line-height: 36px;
 	}
 
 	.item-top .question-num i {
