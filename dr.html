@@ -4,7 +4,13 @@
 <head>
 	<title></title>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="format-detection" content="telephone=no" />
 	<link rel="stylesheet" href="css/mobiscroll/mobiscroll.min.css">
 	<link rel="stylesheet" href="css/content.css">
 </head>
@@ -12,11 +18,13 @@
 <body>
 
 	<div class="content">
-		<div class="item" style="display: block;">
+		<div class="item" id="item_one">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你的性别</p>
-				<p class="question-num"><i class="add">1</i>/31</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你的性别</span>
+				</div>
+				<p class="question-num"><i>1</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
@@ -28,9 +36,12 @@
 			</div>
 		</div>
 		<div class="item">
+			<div class="hr"></div>
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你的出生年月</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你的出生年月</span>
+				</div>
 				<p class="question-num"><i>2</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -43,9 +54,12 @@
 			</div>
 		</div>
 		<div class="item">
+			<div class="hr"></div>
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">平均来说，你大便的频率如何？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">平均来说，你大便的频率如何？</span>
+				</div>
 				<p class="question-num"><i>3</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -70,9 +84,12 @@
 			</div>
 		</div>
 		<div class="item">
+			<div class="hr"></div>
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">每次大便平均多长时间？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">每次大便平均多长时间？</span>
+				</div>
 				<p class="question-num"><i>4</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -95,8 +112,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">就医或体检的时候，你做过肛门指检吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">就医或体检的时候，你做过肛门指检吗？</span>
+				</div>
 				<p class="question-num"><i>5</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -110,8 +129,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">最近一次指检，医生给你的诊断是？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">最近一次指检，医生给你的诊断是？</span>
+				</div>
 				<p class="question-num"><i>6</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -137,13 +158,15 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你是否吸烟？(如果你以前曾经吸烟，但现在已经戒烟，则按照以前情况回答)</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你是否吸烟？(如果你以前曾经吸烟，但现在已经戒烟，则按照以前情况回答)</span>
+				</div>
 				<p class="question-num"><i>7</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
-					<input id="radio7-1" type="radio" name="radio7" value="1"><label for="radio7-1" class="answer-content"  go-page="2">从不</label>
+					<input id="radio7-1" type="radio" name="radio7" value="1"><label for="radio7-1" class="answer-content" go-page="2">从不</label>
 				</div>
 				<div class="answer-item">
 					<input id="radio7-2" type="radio" name="radio7" value="1"><label for="radio7-2" class="answer-content">偶尔吸烟（平均每天&lt;2支烟，并且并非每天都吸烟）</label>
@@ -161,8 +184,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你吸烟共约多长时间？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你吸烟共约多长时间？</span>
+				</div>
 				<p class="question-num"><i>8</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -185,13 +210,15 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你是否饮酒？(如果你以前曾经饮酒，但现在已经戒酒，则按照以前情况回答)</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你是否饮酒？(如果你以前曾经饮酒，但现在已经戒酒，则按照以前情况回答)</span>
+				</div>
 				<p class="question-num"><i>9</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
-					<input id="radio9-1" type="radio" name="radio9" value="1"><label for="radio9-1" class="answer-content"  go-page="2">从不，我滴酒不沾</label>
+					<input id="radio9-1" type="radio" name="radio9" value="1"><label for="radio9-1" class="answer-content" go-page="2">从不，我滴酒不沾</label>
 				</div>
 				<div class="answer-item">
 					<input id="radio9-2" type="radio" name="radio9" value="1"><label for="radio9-2" class="answer-content">偶尔饮酒，但并非每天都喝</label>
@@ -209,8 +236,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你饮酒共约多长时间？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你饮酒共约多长时间？</span>
+				</div>
 				<p class="question-num"><i>10</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -233,8 +262,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你经常吃辛辣的食物吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你经常吃辛辣的食物吗？</span>
+				</div>
 				<p class="question-num"><i>11</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -257,8 +288,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你有贫血的情况吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你有贫血的情况吗？</span>
+				</div>
 				<p class="question-num"><i>12</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -275,8 +308,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">大便之后擦拭时，手纸上会留下鲜血吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">大便之后擦拭时，手纸上会留下鲜血吗？</span>
+				</div>
 				<p class="question-num"><i>13</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -299,13 +334,15 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">大便时，发生过痔疮从肛门内脱出肛门外的情况吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">大便时，发生过痔疮从肛门内脱出肛门外的情况吗？</span>
+				</div>
 				<p class="question-num"><i>14</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
-					<input id="radio14-1" type="radio" name="radio14" value="1"><label for="radio14-1" class="answer-content"  go-page="3">从不</label>
+					<input id="radio14-1" type="radio" name="radio14" value="1"><label for="radio14-1" class="answer-content" go-page="3">从不</label>
 				</div>
 				<div class="answer-item">
 					<input id="radio14-2" type="radio" name="radio14" value="1"><label for="radio14-2" class="answer-content">很少</label>
@@ -323,8 +360,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">痔疮脱出肛门之后，容易恢复吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">痔疮脱出肛门之后，容易恢复吗？</span>
+				</div>
 				<p class="question-num"><i>15</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -341,8 +380,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">痔疮发生过嵌顿吗？（痔疮从肛门内脱出于肛门外，被肛门夹住，痔疮变大且疼痛，用手也无法将其送回肛门内）</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">痔疮发生过嵌顿吗？(痔疮从肛门内脱出于肛门外，被肛门夹住，痔疮变大且疼痛，用手也无法将其送回肛门内)</span>
+				</div>
 				<p class="question-num"><i>16</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -362,13 +403,15 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">肛门表面有肿块或皮肤隆起吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">肛门表面有肿块或皮肤隆起吗？</span>
+				</div>
 				<p class="question-num"><i>17</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
 				<div class="answer-item">
-					<input id="radio17-1" type="radio" name="radio17" value="1"><label for="radio17-1" class="answer-content"  go-page="4">没有</label>
+					<input id="radio17-1" type="radio" name="radio17" value="1"><label for="radio17-1" class="answer-content" go-page="4">没有</label>
 				</div>
 				<div class="answer-item">
 					<input id="radio17-2" type="radio" name="radio17" value="1"><label for="radio17-2" class="answer-content">一直有</label>
@@ -380,8 +423,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">肛门外表面有肿块或皮肤隆起，会导致大便后肛门部位不易清洁吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">肛门外表面有肿块或皮肤隆起，会导致大便后肛门部位不易清洁吗？</span>
+				</div>
 				<p class="question-num"><i>18</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -395,8 +440,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">肿块或隆起，更接近于以下哪种？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">肿块或隆起，更接近于以下哪种？</span>
+				</div>
 				<p class="question-num"><i>19</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -416,8 +463,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">肿块或皮肤隆起的大小如何？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">肿块或皮肤隆起的大小如何？</span>
+				</div>
 				<p class="question-num"><i>20</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -437,8 +486,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">大便的时候，肛门部位的疼痛情况如何？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">大便的时候，肛门部位的疼痛情况如何？</span>
+				</div>
 				<p class="question-num"><i>21</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -458,8 +509,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">肛门部位有坠胀感吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">肛门部位有坠胀感吗？</span>
+				</div>
 				<p class="question-num"><i>22</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -482,8 +535,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">肛门部位有发胀、发热感吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">肛门部位有发胀、发热感吗？</span>
+				</div>
 				<p class="question-num"><i>23</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -506,8 +561,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">肛门部位、肛门周围发痒吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">肛门部位、肛门周围发痒吗？</span>
+				</div>
 				<p class="question-num"><i>24</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -530,8 +587,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">有时候，肛门会有粘液流出吗？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">有时候，肛门会有粘液流出吗？</span>
+				</div>
 				<p class="question-num"><i>25</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -548,8 +607,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你采用过以下方法来应对痔疮症状吗？(多选)</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你采用过以下方法来应对痔疮症状吗？(多选)</span>
+				</div>
 				<p class="question-num"><i>26</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -587,8 +648,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你吸烟共约多长时间？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你用药了吗？</span>
+				</div>
 				<p class="question-num"><i>27</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -596,7 +659,7 @@
 					<input id="radio27-1" type="radio" name="radio27" value="1"><label for="radio27-1" class="answer-content">用了</label>
 				</div>
 				<div class="answer-item">
-					<input id="radio27-2" type="radio" name="radio27" value="1"><label for="radio27-2" class="answer-content"  go-page="3">没用药</label>
+					<input id="radio27-2" type="radio" name="radio27" value="1"><label for="radio27-2" class="answer-content" go-page="3">没用药</label>
 				</div>
 				<div class="btn-box">
 					<div class="answer-content">没有,或不知道</div>
@@ -605,8 +668,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你用过以下哪些药？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你用过以下哪些药？</span>
+				</div>
 				<p class="question-num"><i>28</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -635,8 +700,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">你还用过以下哪些药？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">你还用过以下哪些药？</span>
+				</div>
 				<p class="question-num"><i>29</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -668,8 +735,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">采用这些方法之后，效果如何？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">采用这些方法之后,效果如何？</span>
+				</div>
 				<p class="question-num"><i>30</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
@@ -689,8 +758,10 @@
 		</div>
 		<div class="item">
 			<div class="item-top">
-				<div class="img-doc"></div>
-				<p class="question">采用这些方法之后，效果如何？</p>
+				<div class="item-box">
+					<span class="img-doc"></span>
+					<span class="question">如果你还尝试过其他方法,可填写在这里。</span>
+				</div>
 				<p class="question-num"><i>31</i>/31</p>
 			</div>
 			<div class="answer-wrapper">
