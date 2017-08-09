@@ -14,16 +14,16 @@
 		width: 100%;
 	}
 
-	 ::-webkit-scrollbar {
-		display: none;
-	}
-
+   ::-webkit-scrollbar {
+		 display: none; 
+	}  
 	.content {
 		position: fixed;
 		width: 100%;
 		top: 0;
 		bottom: 0;
 		background: #ECECEC;
+		overflow: scroll;
 		/* overflow: auto; */
 	}
 
