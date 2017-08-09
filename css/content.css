@@ -12,6 +12,7 @@
 	html,
 	body {
 		width: 100%;
+		font-family: "STHeiti","STKaiti","Microsoft YaHei";
 	}
 
    ::-webkit-scrollbar {
@@ -77,8 +78,7 @@
 		font-size: 28px;
 		color: #333333;
 		margin-right: 32px;
-		height: 36px;
-		line-height: 36px;
+		height: 35px;
 	}
 
 	.item-top .question-num i {
@@ -163,6 +163,7 @@
 		background: #009eb0;
 		font-size: 32px;
 		color: #fff;
+		border-radius: 10px;
 		border: none;
 		outline: none;
 		display: flex;

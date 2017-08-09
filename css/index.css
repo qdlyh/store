@@ -12,7 +12,7 @@
 
         .bottom-btn {
             position: fixed;
-            height: 64px;
+            height: 98px;
             width: 100%;
             text-align: center;
             background: #2F9F79;
@@ -21,10 +21,9 @@
             padding--top: 60px;
         }
         .bottom-btn a{
-            line-height: 64px;
-            
+            line-height: 100px;
             font-family: "STHeiti","STKaiti","Microsoft YaHei";
             color: #fff;
-            font-size: 24px;
+            font-size: 34px;
             font-weight: 100;
         }
