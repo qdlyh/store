@@ -24,7 +24,8 @@
 		top: 0;
 		bottom: 0;
 		background: #ECECEC;
-		overflow: auto;
+		overflow: scroll;
+		-webkit-overflow-scrolling: touch
 	}
 
 	#item_one {
@@ -43,7 +44,7 @@
 	}
 
 	.active {
-		height: 100vh;
+		height: auto;
 	}
 
 	.item-top .img-doc {
@@ -85,9 +86,9 @@
 		font-style: normal;
 		color: #009eb0;
 	}
-	.items{
-		margin-bottom: 50%;  /* 题目多防止下题显示冲突 */
-	}
+/* 	.items{
+		margin-bottom: 50%;  题目多防止下题显示冲突 
+	} */
 
 	.answer-wrapper {
 		display: flex;
