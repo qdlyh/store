@@ -24,7 +24,7 @@
 		top: 0;
 		bottom: 0;
 		background: #ECECEC;
-		overflow: scroll;
+		overflow: auto;
 		-webkit-overflow-scrolling: touch
 	}
 
