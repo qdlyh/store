@@ -85,6 +85,9 @@
 		font-style: normal;
 		color: #009eb0;
 	}
+	.items{
+		margin-bottom: 50%;  /* 题目多防止下题显示冲突 */
+	}
 
 	.answer-wrapper {
 		display: flex;
