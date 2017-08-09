@@ -24,7 +24,6 @@
 		$(".answer-content").on("click", function () {
 			var item = $(this).parents(".item");
 			var i = item.index();
-			var hr =item.find('.box')
 			var go_page = typeof ($(this).attr("go-page")) == "undefined" ? 1 : parseInt($(this).attr("go-page")); //gp-page不存在的话默认为1，存在转换成数字
 			if (go_page != "undefined") {
 				item.nextAll(".item").hide();
@@ -42,7 +41,6 @@
 			var nextItem = $(".content").find(".item").eq(i + go_page);
 			nextItem.show();
 			item.addClass("active");
-			/*  hr.addClass("active") */
 			scrollToElement(".content", nextItem);
 			$("#StartTime").mobiscroll(optDateTime).date(optDateTime);
 		});
