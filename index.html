@@ -18,9 +18,15 @@
     <div class="content">
         <img src="images/0.png" alt="">
         <div class="bottom-btn">
-            <a href="dr.html">开始测试</a>
+            <a href="dr.html" onclick="deleteCookie()">开始测试</a>
         </div>
     </div>
 </body>
+<script>
+
+        function deleteCookie(){
+            document.cookie = "dr=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+</script>
 
 </html>

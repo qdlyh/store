@@ -117,7 +117,7 @@
 		border-radius: 10px;
 		font-size: 32px;
 		color: #000;
-		background: #c2f9ff;
+		background: #bce8ed;
 	}
 
 	.answer-item input[type="checkbox"],
@@ -181,7 +181,7 @@
 	#StartTime {
 		border: none;
 		outline: none;
-		background: #c2f9ff;
+		background: #bce8ed;
 		width: 100%;
 		font-size: 32px;
 		padding: 24px;

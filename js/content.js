@@ -33,8 +33,8 @@
 			if (item.find("#StartTime").val() == "") {
 				layer.style(layer.msg('<span class="warn-time">请选择出生日期</span>'), {
 					time: 1500,
-					width:'100px',
-					height:'100px',
+					width: '100px',
+					height: '100px',
 				});
 				return false;
 			}
@@ -76,48 +76,117 @@
 
 		// 提交数据
 		function submit() {
-			var score = $("input[type='radio'],input[type='checkbox']")
+			var checkout = $("input[type='radio'],input[type='checkbox']")
+			var store = document.cookie;
 			var num = 0;
-			for (let i = 0; i < score.length; i++) {
-				if (score[i].checked == true) {
-					num += parseInt(score[i].value);
-					console.log(num);
+			for (let i = 0; i < checkout.length; i++) {
+				if (checkout[i].checked == true) {
+					num += parseInt(checkout[i].value);
+					//console.log(num);
 				}
 			}
 			if (num <= 40) {
+				document.cookie = "dr=" + num;
+				/* document.cookie = num; */
 				window.open("1.html")
 				return false;
 			}
 			if (num <= 60) {
+				document.cookie = "dr=" + num;
 				window.open("2.html")
 				return false;
 			}
 			if (num <= 80) {
+				document.cookie = "dr=" + num;
 				window.open("3.html")
 				return false;
 			}
 			if (num <= 100) {
+				document.cookie = "dr=" + num;
 				window.open("4.html")
 				return false;
 			}
 			if (num <= 110) {
+				document.cookie = "dr=" + num;
 				window.open("5.html")
 				return false;
 			}
 			if (num <= 120) {
+				document.cookie = "dr=" + num;
 				window.open("6.html")
 				return false;
 			}
 			if (num <= 130) {
+				document.cookie = "dr=" + num;
 				window.open("7.html")
 				return false;
 			}
 			if (num <= 140) {
+				document.cookie = "dr=" + num;
 				window.open("8.html")
 				return false;
 			}
 			if (num > 150) {
+				document.cookie = "dr=" + num;
 				window.open("9.html")
 				return false;
+			}
+		}
+
+		function getCookie(cname) {
+			var name = cname + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i].trim();
+				if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+			}
+			return false;
+		}
+
+		function checkCookie() {
+			var user = getCookie("dr");
+			if (user != "") {
+				//console.log(user)
+				if (user>1 || user <=40) {
+					window.location.href=("1.html");
+					return false;
+				}
+				if (user <= 60) {
+					window.location.href=("2.html");
+					return false;
+				}
+				if (user <= 80) {
+					window.location.href=("3.html");
+					return false;
+				}
+				if (user <= 100) {
+					window.location.href=("4.html");
+					return false;
+				}
+				if (user<= 110) {
+					window.location.href=("5.html");
+					return false;
+				}
+				if (user <= 120) {
+					window.location.href=("6.html");
+					return false;
+				}
+				if (nuser <= 130) {
+					window.location.href=("7.html");
+					return false;
+				}
+				if (user <= 140) {
+					window.location.href=("8.html");
+					return false;
+				}
+				if (user > 150) {
+					window.location.href=("9.html");
+					return false;
+				}
+			} else {
+				//user = alert('没有值')
+				if (user != "" && user != null) {
+					setCookie("dr", user, 30);
+				}
 			}
 		}
