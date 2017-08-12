@@ -2,51 +2,31 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            text-decoration:none;
-        }
-        .content{
-            position:relative;
-        }
-        .content img {
-            width: 100%;
-        }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/index.css">
 
-        .bottom-btn {
-            position: fixed;
-            height: 64px;
-            width: 100%;
-            text-align: center;
-            background: #2F9F79;
-            bottom: 0px;
-            opacity: 0.8;
-             padding--top: 60px;
-        }
-        .bottom-btn a{
-            line-height: 64px;
-            
-            font-family: "STHeiti","STKaiti","Microsoft YaHei";
-            color: #fff;
-            font-size: 24px;
-            font-weight: 100;
-        }
-    </style>
 </head>
 
 <body>
     <div class="content">
-        <img src="images/13151546.png" alt="">
+        <img src="images/0.png" alt="">
         <div class="bottom-btn">
-            <a href="dr.html">开始测试</a>
+            <a href="dr.html" onclick="deleteCookie()">开始测试</a>
         </div>
     </div>
 </body>
+<script>
+
+        function deleteCookie(){
+            document.cookie = "dr=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+</script>
 
 </html>
