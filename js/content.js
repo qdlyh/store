@@ -147,46 +147,46 @@
 			var user = getCookie("dr");
 			if (user != "") {
 				//console.log(user)
-				if (user>1 || user <=40) {
+				if (user>0 && user <=40) {
 					window.location.href=("1.html");
 					return false;
 				}
-				if (user <= 60) {
+				if (user>0 && user <= 60) {
 					window.location.href=("2.html");
 					return false;
 				}
-				if (user <= 80) {
+				if (user>0 && user <= 80) {
 					window.location.href=("3.html");
 					return false;
 				}
-				if (user <= 100) {
+				if (user>0 && user <= 100) {
 					window.location.href=("4.html");
 					return false;
 				}
-				if (user<= 110) {
+				if (user>0 && user<= 110) {
 					window.location.href=("5.html");
 					return false;
 				}
-				if (user <= 120) {
+				if (user>0 &&user <= 120) {
 					window.location.href=("6.html");
 					return false;
 				}
-				if (nuser <= 130) {
+				if (user>0 && nuser <= 130) {
 					window.location.href=("7.html");
 					return false;
 				}
-				if (user <= 140) {
+				if (user>0 && user <= 140) {
 					window.location.href=("8.html");
 					return false;
 				}
-				if (user > 150) {
+				if (user>0 && user > 150) {
 					window.location.href=("9.html");
 					return false;
 				}
-			} else {
+			} /* else {
 				//user = alert('没有值')
 				if (user != "" && user != null) {
 					setCookie("dr", user, 30);
 				}
-			}
+			} */
 		}
