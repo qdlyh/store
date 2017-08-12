@@ -77,7 +77,6 @@
 		// 提交数据
 		function submit() {
 			var checkout = $("input[type='radio'],input[type='checkbox']")
-			var store = document.cookie;
 			var num = 0;
 			for (let i = 0; i < checkout.length; i++) {
 				if (checkout[i].checked == true) {
@@ -87,48 +86,47 @@
 			}
 			if (num <= 40) {
 				document.cookie = "dr=" + num;
-				/* document.cookie = num; */
-				window.open("1.html")
+				window.location.href=("1.html");
 				return false;
 			}
 			if (num <= 60) {
 				document.cookie = "dr=" + num;
-				window.open("2.html")
+				window.location.href=("2.html");
 				return false;
 			}
 			if (num <= 80) {
 				document.cookie = "dr=" + num;
-				window.open("3.html")
+				window.location.href=("3.html");
 				return false;
 			}
 			if (num <= 100) {
 				document.cookie = "dr=" + num;
-				window.open("4.html")
+				window.location.href=("4.html");
 				return false;
 			}
 			if (num <= 110) {
 				document.cookie = "dr=" + num;
-				window.open("5.html")
+				window.location.href=("5.html");
 				return false;
 			}
 			if (num <= 120) {
 				document.cookie = "dr=" + num;
-				window.open("6.html")
+				window.location.href=("6.html");
 				return false;
 			}
 			if (num <= 130) {
 				document.cookie = "dr=" + num;
-				window.open("7.html")
+				window.location.href=("7.html");
 				return false;
 			}
 			if (num <= 140) {
 				document.cookie = "dr=" + num;
-				window.open("8.html")
+				window.location.href=("8.html");
 				return false;
 			}
 			if (num > 150) {
 				document.cookie = "dr=" + num;
-				window.open("9.html")
+				window.location.href=("9.html");
 				return false;
 			}
 		}
@@ -147,46 +145,41 @@
 			var user = getCookie("dr");
 			if (user != "") {
 				//console.log(user)
-				if (user>0 && user <=40) {
+				if (user <=40) {
 					window.location.href=("1.html");
 					return false;
 				}
-				if (user>0 && user <= 60) {
+				if (user <= 60) {
 					window.location.href=("2.html");
 					return false;
 				}
-				if (user>0 && user <= 80) {
+				if (user <= 80) {
 					window.location.href=("3.html");
 					return false;
 				}
-				if (user>0 && user <= 100) {
+				if (user <= 100) {
 					window.location.href=("4.html");
 					return false;
 				}
-				if (user>0 && user<= 110) {
+				if (user<= 110) {
 					window.location.href=("5.html");
 					return false;
 				}
-				if (user>0 &&user <= 120) {
+				if (user <= 120) {
 					window.location.href=("6.html");
 					return false;
 				}
-				if (user>0 && nuser <= 130) {
+				if (user <= 130) {
 					window.location.href=("7.html");
 					return false;
 				}
-				if (user>0 && user <= 140) {
+				if (user <= 140) {
 					window.location.href=("8.html");
 					return false;
 				}
-				if (user>0 && user > 150) {
+				if (user > 150) {
 					window.location.href=("9.html");
 					return false;
 				}
-			} /* else {
-				//user = alert('没有值')
-				if (user != "" && user != null) {
-					setCookie("dr", user, 30);
-				}
-			} */
+			}
 		}
