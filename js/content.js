@@ -1,4 +1,4 @@
-		// 日期
+			// 日期
 		var currYear = (new Date()).getFullYear();
 		var opt = {
 			preset: 'date'
@@ -85,67 +85,58 @@
 				}
 			}
 			if (num <= 40) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("1.html");
 				return false;
 			}
 			if (num <= 60) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("2.html");
 				return false;
 			}
 			if (num <= 80) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("3.html");
 				return false;
 			}
 			if (num <= 100) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("4.html");
 				return false;
 			}
 			if (num <= 110) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("5.html");
 				return false;
 			}
 			if (num <= 120) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("6.html");
 				return false;
 			}
 			if (num <= 130) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("7.html");
 				return false;
 			}
 			if (num <= 140) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("8.html");
 				return false;
 			}
 			if (num > 150) {
-				document.cookie = "dr=" + num;
+				localStorage.setItem("dr",num);
 				window.location.href=("9.html");
 				return false;
 			}
 		}
 
-		function getCookie(cname) {
-			var name = cname + "=";
-			var ca = document.cookie.split(';');
-			for (var i = 0; i < ca.length; i++) {
-				var c = ca[i].trim();
-				if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-			}
-			return false;
-		}
-
-		function checkCookie() {
-			var user = getCookie("dr");
-			if (user != "") {
+	 	function checkCookie() {
+			var user = JSON.parse(localStorage.getItem("dr"));
+			console.log(user)
+			if (user != undefined) {
 				//console.log(user)
-				if (user <=40) {
+				 if (user <=40) {
 					window.location.href=("1.html");
 					return false;
 				}
@@ -182,4 +173,4 @@
 					return false;
 				}
 			}
-		}
+		} 
