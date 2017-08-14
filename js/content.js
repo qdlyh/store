@@ -131,7 +131,7 @@
 			}
 		}
 
-	 	window.onload=function(){
+	 	  $(document).ready(function(){
 			var user = JSON.parse(localStorage.getItem("dr"));
 			console.log(user)
 			if (user != undefined) {
@@ -173,4 +173,4 @@
 					return false;
 				}
 			}
-		}
+		})
