@@ -3,6 +3,21 @@
 
 <head>
     <meta charset="utf-8">
+            <script type="text/javascript">
+        var phoneWidth = parseInt(window.screen.width);
+        var phoneScale = phoneWidth / 640;
+        var ua = navigator.userAgent;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            if (version > 2.3) {
+                document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi , minimal-ui">');
+            } else {
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi, minimal-ui">');
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi, minimal-ui">');
+        }
+    </script>
     <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -20,7 +35,7 @@
         <img src="images/3.2.png" alt="">
         <img src="images/3.3.png" alt="">
         <div class="bottom-btn">
-            <a href="index.html">重新测试</a>
+            <a href="index.html">重新测试3</a>
         </div>
     </div>
 </body>
