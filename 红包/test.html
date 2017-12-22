@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{margin: 0;padding: 0;}
+	body,html{width: 100%;height: 100%;}
+	.first{background: orange;width: 100%;height: 100%;}
+	.testli{background: red;position: absolute;width: 100px;height: 100px;}
+	</style>
+</head>
+<body>
+	<div class="first">
+		
+	</div>
+	<script src="js/jquery.js"></script>
+	<script>
+		$(".first").append('<li class="testli"></li>');
+		setTimeout(function() {
+			$(".testli").css({
+			'transition':'all '+5+'s linear',
+			'transform': 'translateY(300px)'
+		});
+					},0)
+		$(".testli").click(function() {
+			console.log(1);
+		});
+	</script>
+</body>
+</html>

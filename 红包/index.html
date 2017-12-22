@@ -1,0 +1,362 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>红包雨</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+	<!--在iPhone 手机上禁止了把数字转化为拨号链接-->
+	<meta content="telephone=no" name="format-detection" />
+	<!--删除默认的苹果工具栏和菜单栏-->
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<!-- 网站开启对web app程序的支持，在web app应用下状态条（屏幕顶部条）的颜色，默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/demo.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/sweet-alert.css">
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			position: relative;
+			background-position: center;
+			width: 100%;
+			height: 100%;
+			overflow-y: hidden;
+			background: url(images/bj.png) no-repeat top left;
+			background-size: 100%;
+		}
+
+		.tip {
+			font-size: 30px;
+			font-weight: bolder;
+			color: #3DC512;
+			z-index: 9999;
+			transform: translateY(50px);
+			position: fixed;
+			display: none;
+		}
+
+		.sco {
+			padding: 15px;
+			z-index: 9999;
+			position: fixed;
+			top: 20px;
+			left: 20px;
+			font-size: 28px;
+			color: #fff;
+			background: #000;
+			opacity: 0.7;
+			display: none;
+		}
+
+		.couten {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			overflow-y: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.couten li {
+			position: absolute;
+			top: -100px;
+		}
+
+		.couten li a {
+			display: block;
+		}
+
+		.mo {
+			width: 100%;
+			display: inline-block;
+			position: fixed;
+			top: 50%;
+			left: 52%;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			display: none;
+		}
+
+		.mo img {
+			width: 100%;
+		}
+
+		.mystore {
+			position: relative;
+			top: -50px;
+			left: 50%;
+			font-size: 28px;
+			color: #A40000;
+			z-index: 9999;
+			font-weight: bold;
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			display: inline-block;
+		}
+
+		.backward {
+			width: 100%;
+			background: #000;
+			opacity: 0.7;
+			position: absolute;
+			top: 0;
+			display: none;
+		}
+
+		.backward span {
+			display: inline-block;
+			width: 100px;
+			height: 100px;
+			color: #fff;
+			font-weight: bold;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			opacity: 0.9;
+			text-align: center;
+			line-height: 100px;
+			font-size: 1000%;
+		}
+
+		.imgbox {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.bj1 {
+			width: 80%;
+		}
+
+		.game-start {
+			position: absolute;
+			width: 100%;
+			bottom: 15%;
+		}
+
+		.start {
+			width: 50%;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var win = (parseInt($(".couten").css("width"))) - 60;
+			$(".mo").css("height", $(document).height());
+			$(".couten").css("height", $(document).height());
+			$(".backward").css("height", $(document).height());
+			$("li").css({});
+			// 点击确认的时候关闭模态层
+			$(".sen a").click(function () {
+				$(".mo").css("display", "none")
+			});
+			var tempi = 0;
+			var score = 0;
+			var time = 60;
+			var timename;
+			var add = function () {
+				var hb = parseInt(Math.random() * (4) + 1);
+				var Wh = parseInt(Math.random() * (50) + 30);
+				var Left = parseInt(Math.random() * (win - 0) + 0);
+				//var rot = (parseInt(Math.random() * (45 - (-45)) - 45)) + "deg";
+				//				console.log(rot)
+				num++;
+
+				$(".couten").append("<li class='li" + num + "' ><a href='javascript:;'><img src='images/" + hb +
+					".png'></a></li>");
+				//console.log(hb)
+				//console.log(Wh)
+				$(".li" + num).css({
+					"left": Left,
+				});
+				$(".li" + num + " a img").css({
+					"width": Wh,
+					// "transform": "rotate(" + rot + ")",
+					// "-webkit-transform": "rotate(" + rot + ")",
+					// "-ms-transform": "rotate(" + rot + ")",
+					// /* Internet Explorer */
+					// "-moz-transform": "rotate(" + rot + ")",
+					// /* Firefox */
+					// "-webkit-transform": "rotate(" + rot + ")",
+					// /* Safari 和 Chrome */
+					// "-o-transform": "rotate(" + rot + ")" /* Opera */
+				});
+				// $(".li" + num).animate({'top':$(window).height()+20},5000,function(){
+				// 	//删掉已经显示的红包
+				// 	this.remove()
+				// });
+				var temp = $(window).height() + 100;
+				// console.log(temp);
+				setTimeout(function () {
+					$(".li" + num).css({
+						'transition': 'all ' + 3 + 's linear',
+						'transform': 'translateY(' + temp + 'px)'
+					});
+				}, 100)
+				setTimeout(function () {
+					$(".li" + tempi).remove();
+					tempi++;
+				}, 3100)
+				//点击红包的时候弹出模态层
+				$(".li" + num).click(function () {
+					if (hb == 1) {
+						$(this).find('img').attr("src", "images/+10.png");
+						score += 10;
+						//var speedStop = setTimeout(speed = 1, 3000);
+						//$('.tip').text(10 + '分');
+					}
+					if (hb == 2) {
+						$(this).find('img').attr("src", "images/-10.png");
+						time -= 10;
+						//$('.tip').text(-10 + 's');
+					}
+					if (hb == 3) {
+						$(this).find('img').attr("src", "images/-3.png");
+						score -= 3;
+						//$('.tip').text(-3 + '分');
+					}
+					if (hb == 4) {
+						$(this).find('img').attr("src", "images/+5.png");
+						score += 5;
+						//$('.tip').text(5 + '分');
+					}
+
+					// $(".mo").css("display", "block")
+					var x = $(this).offset().top;
+					var y = $(this).offset().left;
+					$(".tip").show();
+					$(".tip").css({
+						top: x,
+						left: y,
+					});
+					$(this).unbind("click");
+					$(this).hide(300);
+					//$(this).remove();
+					//score++;
+					// 得分：0&nbsp;&nbsp;&nbsp;&nbsp;时间：60s
+					// $(".sco").html('得分：'+score+'&nbsp;&nbsp;&nbsp;&nbsp;时间：'+time+'s');
+				});
+				if (time == 0 || time <= 0) {
+					//console.log('1')
+					clearInterval(timename);
+					$(".tip").hide();
+					time += 0;
+					$(".timeText").text(0);
+					$('.couten').remove();
+					//setTimeout("alert('恭喜你哦" + score + "分')", 500)
+					$(".mo").css("display", "block");
+					$(".mo").find('h3').text("恭喜你哦" + score + "分")
+					if (score < 50) {
+						$(".mo").find("img").attr("src", "images/thanks.png")
+						return;
+					}
+					if (score < 200) {
+						$(".mo").find("img").attr("src", "images/x1.png")
+						return;
+					}
+					if (score < 300) {
+						$(".mo").find("img").attr("src", "images/x2.png")
+						return;
+					}
+					if (score < 400) {
+						$(".mo").find("img").attr("src", "images/x3.png")
+						return;
+					}
+					if (score < 500) {
+						$(".mo").find("img").attr("src", "images/x4.png")
+						return;
+					}
+					if (score > 500) {
+						$(".mo").find("img").attr("src", "images/x5.png")
+						return;
+					}
+
+					return;
+				}
+				setTimeout(add, 300);
+			}
+
+
+			//增加红包
+			var num = 0;
+
+			//倒数计时
+			var numz = 4;
+			$('.start').click(function () {
+				$('.imgbox').hide()
+				$('.backward').show()
+				var backward = function () {
+					numz--;
+					if (numz > 0) {
+						$(".backward span").html(numz);
+					} else {
+						$(".backward").remove();
+						$(".sco").show();
+						timename = setInterval(function () {
+							time--;
+							$(".sco").html('得分：' + score + '&nbsp;&nbsp;&nbsp;&nbsp;时间：' + '<i class="timeText">' + time + '</i>' +
+								'&nbsp;s');
+						}, 1000)
+						return;
+					}
+					setTimeout(backward, 1000)
+				}
+				setTimeout(add, 3000);
+				backward();
+			})
+
+		})
+	</script>
+
+</head>
+
+<body>
+	<ul class="couten">
+		<div class="tip">
+			<!-- <img src="" alt=""> -->
+		</div>
+		<div class="sco">
+			得分：0&nbsp;&nbsp;&nbsp;&nbsp;时间：60&nbsp;s
+		</div>
+		<!--<li>
+		<a href="#"><img src="images/hb_1.png"></a>
+	</li>-->
+		<div class="imgbox">
+			<img src="images/bj1.png" alt="" class="bj1">
+			<div class="game-start">
+				<img src="images/start.png" alt="" class="start">
+			</div>
+		</div>
+	</ul>
+
+
+
+	<div class="mo">
+		<div class="sen"></div>
+		<img src="">
+		<div class="mystore">
+			<h3>恭喜你哦0分</h3>
+		</div>
+	</div>
+
+
+	<div class="backward">
+		<span></span>
+	</div>
+
+</body>
+
+</html>

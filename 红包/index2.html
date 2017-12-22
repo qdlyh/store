@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html >
+
+<head>
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+<title>html5手机端抢红包雨代码 - A5源码</title>
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">		 -->
+<!-- <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"> -->
+<!--在iPhone 手机上禁止了把数字转化为拨号链接-->
+<!-- <meta content="telephone=no" name="format-detection" /> -->
+<!--删除默认的苹果工具栏和菜单栏-->
+<!-- <meta content="yes" name="apple-mobile-web-app-capable"> -->
+<!-- 网站开启对web app程序的支持，在web app应用下状态条（屏幕顶部条）的颜色，默认值为default（白色），可以定为black（黑色）和black-translucent（灰色半透明）-->
+<!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+<!-- <link rel="stylesheet" href="css/demo.css" type="text/css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/sweet-alert.css"> -->
+<style>
+	body {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		/*background-position: center;*/
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		/*background-size:  100%;*/
+	}
+	.couten {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		overflow-y: hidden;
+	}
+	.couten li {
+		position: absolute;
+		/*animation: all 3s linear;*/
+		top:100px;
+		width: 50px;
+		height: 50px;
+		/*transition: top 3s;                                                                  */
+		/*-webkit-tap-highlight-color:  rgba(0, 0, 0, 0);*/
+	}
+	.couten li a{
+		display: block;
+	}
+	
+</style>
+<script src="js/jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		var win = (parseInt($(".couten").css("width"))) - 60;
+		// $(".mo").css("height", $(document).height());
+		$(".couten").css("height", $(document).height());
+		// $(".backward").css("height", $(document).height());
+		// $("li").css({});
+		// 点击确认的时候关闭模态层
+
+		var add = function() {
+			var hb = parseInt(Math.random() * (3 - 1) + 1);
+			var Wh = parseInt(Math.random() * (70 - 30) + 20);
+			var Left = parseInt(Math.random() * (win - 0) + 0);
+			var rot = (parseInt(Math.random() * (45 - (-45)) - 45)) + "deg";
+			//				console.log(rot)
+			num++;
+			$(".couten").append("<li class='li" + num + "' ><a href='javascript:;'><img src='images/hb_" + hb + ".png'></a></li>");
+
+			$(".li" + num).css({
+				"left": Left,
+			});
+
+			$(".li" + num + " a img").css({
+				"width": Wh,
+				"transform": "rotate(" + rot + ")",
+				
+			});	
+			
+				$(".li" + num).css({
+				'transition':'all '+5+'s linear',
+				'transform': 'translateY(300px)'
+				});
+
+			// $(".li" + num).animate({'top':$(window).height()+20},3000,function(){
+			// 	//删掉已经显示的红包
+			// 	this.remove()
+			// });
+			// setTimeout(add,200)
+		}	
+		//增加红包
+		var num = 0;
+		// setTimeout(add,0);
+		add();
+				
+
+		function test() {
+			// body...
+			$(".li" + num).click(function() {
+				$(".li" + num).css({
+				'transition':'all '+5+'s linear',
+				'transform': 'translateY(500px)'
+				});
+			});
+			
+		}
+		
+		setTimeout(test,100);
+		
+	
+	})
+</script>
+
+</head>
+<body>
+<ul class="couten">
+
+</ul>
+
+</body>
+</html>
