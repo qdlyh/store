@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <style>
+        @keyframes warn {
+            0% {
+                transform: scale(0.3);
+                -webkit-transform: scale(0.3);
+                opacity: 0.0;
+            }
+            25% {
+                transform: scale(0.3);
+                -webkit-transform: scale(0.3);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(0.5);
+                -webkit-transform: scale(0.5);
+                opacity: 0.3;
+            }
+            75% {
+                transform: scale(0.8);
+                -webkit-transform: scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                opacity: 0.0;
+            }
+        }
+        @keyframes warn1 {
+            0% {
+                transform: scale(0.3);
+                -webkit-transform: scale(0.3);
+                opacity: 0.0;
+            }
+            25% {
+                transform: scale(0.3);
+                -webkit-transform: scale(0.3);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(0.3);
+                -webkit-transform: scale(0.3);
+                opacity: 0.3;
+            }
+            75% {
+                transform: scale(0.5);
+                -webkit-transform: scale(0.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0.8);
+                -webkit-transform: scale(0.8);
+                opacity: 0.0;
+            }
+        }
+        @-webkit-keyframes "warn" {
+            0% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+                opacity: 0.0;
+            }
+            25% {
+                transform: scale(0);
+                -webkit-transform: scale(0);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(0.1);
+                -webkit-transform: scale(0.1);
+                opacity: 0.3;
+            }
+            75% {
+                transform: scale(0.5);
+                -webkit-transform: scale(0.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+                -webkit-transform: scale(1);
+                opacity: 0.0;
+            }
+        }
+
+        .container {
+        }
+        /* 保持大小不变的小圆圈  */
+        .dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right:0;
+            bottom: 0;
+            margin: auto;
+            width: 192px;
+            height: 192px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        /* 产生动画（向外扩散变大）的圆圈  */
+        .pulse {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right:0;
+            bottom: 0;
+            margin: auto;
+            width: 800px;
+            height: 800px;
+            border: 6px solid #fdfdfd;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            animation: warn 2s ease-out;
+            animation-iteration-count: infinite;
+            box-shadow: 1px 1px 30px #fdfdfd;
+            background: #49c5ff;
+
+        }
+        .pulse1 {
+           position: absolute;
+            left: 0;
+            top: 0;
+            right:0;
+            bottom: 0;
+            margin: auto;
+            width:  800px;
+            height: 800px;
+            border: 6px solid #fdfdfd;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            animation: warn1 2s ease-out;
+            animation-iteration-count: infinite;
+            box-shadow: 1px 1px 30px #fdfdfd;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+<canvas id="myCanvas"></canvas>
+    <div class="dot"></div>
+    <div class="pulse"></div>
+    <div class="pulse1"></div>
+</div>
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.moveTo(130,10);
+ctx.lineTo(150,120);
+ctx.stroke();
+</script>
+</body>
+</html>  
