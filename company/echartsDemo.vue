@@ -1,5 +1,15 @@
 <template>
     <div class="hello">
+        <div class="page">
+            <input type="number" v-model="num" @keyup.enter="jup()">
+            <span @click="jup">跳页</span>
+            <span>
+                <i>{{page}}</i>
+                <i>{{total}}</i>
+            </span>
+            <button @click="btn">-</button>
+            <button @click="btns">+</button>
+        </div>
         <Button type="error" @click="isShow">Error</Button>
 
         <div id="main" style="width: 600px;height:400px;" v-show="show"></div>
@@ -23,7 +33,9 @@ export default {
         return {
             myChart: null,
             show: true,
-            msg: "Welcome to Your Vue.js App",
+            num: 1,
+            page: 1,
+            total: 10,
             theme1: "light"
         };
     },
@@ -36,6 +48,9 @@ export default {
         this.harts();
     },
     watch: {
+        num(val) {
+            this.num = this.num.replace(/\D|^0/g, "1");
+        },
         show() {
             if (this.show) {
                 this.myChart = echarts.init(document.getElementById("main"));
@@ -46,6 +61,23 @@ export default {
         }
     },
     methods: {
+        btn() {
+            if (this.page > 1) {
+                this.page--;
+            }
+        },
+        btns() {
+            if (this.page < this.total) {
+                this.page++;
+            }
+        },
+        jup(e) {
+            if (this.num > this.total) {
+                this.page = this.total;
+            } else {
+                this.page = this.num;
+            }
+        },
         isShow() {
             this.show = !this.show;
         },
@@ -78,6 +110,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.page {
+}
 h1,
 h2 {
     font-weight: normal;
