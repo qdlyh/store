@@ -33,6 +33,7 @@
 				</div>
 				<div class="pulse"></div>
 				<div class="pulse1"></div>
+				<div class="pulse2"></div>
 			</div>
 		</div>
 	</div>
@@ -40,46 +41,53 @@
 
 <script>
 export default {
-	data() {
-		return {
+    data() {
+        return {};
+    },
+    mounted() {
+        var myCanvas = document.getElementById("myCanvas");
+        var width = myCanvas.offsetWidth;
+        //  计算画布的高度
+        var height = myCanvas.offsetHeight;
+        myCanvas.width = width;
+        myCanvas.height = height;
+        var ctx = myCanvas.getContext("2d");
+        //顺时针线条
+        ctx.moveTo(150, 120);
+        ctx.lineTo(140, 0);
 
-		}
-	},
-	mounted() {
-		var myCanvas = document.getElementById("myCanvas");
-		var width = myCanvas.offsetWidth;
-		//  计算画布的高度
-		var height = myCanvas.offsetHeight;
-		myCanvas.width = width;
-		myCanvas.height = height;
-		var ctx = myCanvas.getContext("2d");
-		//顺时针线条
-		ctx.moveTo(150, 120);
-		ctx.lineTo(140, 0);
+        ctx.moveTo(200, 120);
+        ctx.lineTo(220, 0);
 
-		ctx.moveTo(200, 120);
-		ctx.lineTo(220, 0);
+        ctx.moveTo(260, 180);
+        ctx.lineTo(550, 10);
 
-		ctx.moveTo(260, 180);
-		ctx.lineTo(550, 10);
+        ctx.moveTo(200, 250);
+        ctx.lineTo(270, 500);
 
-		ctx.moveTo(200, 250);
-		ctx.lineTo(270, 500);
+        ctx.moveTo(140, 250);
+        ctx.lineTo(90, 500);
 
-		ctx.moveTo(140, 250);
-		ctx.lineTo(90, 500);
+        ctx.moveTo(90, 180);
+        ctx.lineTo(0, 140);
 
-		ctx.moveTo(90, 180);
-		ctx.lineTo(0, 140);
-		
-		ctx.strokeStyle = "#5385ff"
-		ctx.stroke();
-	}
-}
+        ctx.strokeStyle = "#5385ff";
+        ctx.stroke();
+    }
+};
 </script>
 <style lang="stylus" scoped>
+.mian {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: #f3f3f3;
+}
+
 .tips {
-	margin-top 30px;
+	margin-top: 30px;
 	width: 145px;
 	height: 90px;
 	border-radius: 4px;
@@ -119,7 +127,7 @@ export default {
 	&:before {
 		position: absolute;
 		left: -1px;
-		top:10px;
+		top: 10px;
 		content: '';
 		width: 0px;
 		height: 0px;
@@ -144,6 +152,7 @@ export default {
 			text-align: left;
 			display: inline-block;
 			margin-top: 30px;
+
 			&:before {
 				content: '';
 				display: inline-block;
@@ -207,10 +216,10 @@ export default {
 	border-radius: 50%;
 	z-index: 1;
 	opacity: 0;
-	animation: warn 2s ease-out;
+	animation: warn 6s ease-out;
 	animation-iteration-count: infinite;
 	box-shadow: 1px 1px 30px #5385FF;
-	// background: #49c5ff;
+	background: rgba(0,150,255, .1);
 }
 
 .pulse1 {
@@ -222,107 +231,112 @@ export default {
 	margin: auto;
 	width: 800px;
 	height: 800px;
-	border: 3px solid #5385FF;
+	border: 1px solid #5385FF;
 	border-radius: 50%;
 	z-index: 1;
 	opacity: 0;
-	animation: warn1 2s ease-out;
+	animation: warn1 4s ease-out;
 	animation-iteration-count: infinite;
-	box-shadow: 1px 1px 30px #5385FF;
+	background: rgba(0,150,255, .1);
+	// box-shadow: 1px 1px 30px #5385FF;
+}
+
+.pulse2 {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 800px;
+	height: 800px;
+	border: 1px solid #5385FF;
+	border-radius: 50%;
+	z-index: 1;
+	opacity: 0;
+	animation: warn2 5s ease-out;
+	animation-iteration-count: infinite;
+	background: rgba(0,150,255, .1);
+	// box-shadow: 1px 1px 30px #5385FF;
 }
 
 @keyframes warn {
 	0% {
 		transform: scale(0.3);
-		-webkit-transform: scale(0.3);
 		opacity: 0;
 	}
 
 	25% {
-		transform: scale(0.3);
-		-webkit-transform: scale(0.3);
+		transform: scale(0.4);
 		opacity: 0.1;
 	}
 
 	50% {
 		transform: scale(0.5);
-		-webkit-transform: scale(0.5);
 		opacity: 0.3;
 	}
 
 	75% {
-		transform: scale(0.8);
-		-webkit-transform: scale(0.8);
+		transform: scale(0.6);
 		opacity: 0.5;
 	}
 
 	100% {
-		transform: scale(1);
-		-webkit-transform: scale(1);
+		transform: scale(0.7);
 		opacity: 0;
 	}
 }
 
 @keyframes warn1 {
 	0% {
-		transform: scale(0.3);
-		-webkit-transform: scale(0.3);
+		transform: scale(0.9);
 		opacity: 0;
 	}
 
 	25% {
-		transform: scale(0.3);
-		-webkit-transform: scale(0.3);
+		transform: scale(1);
 		opacity: 0.1;
 	}
 
 	50% {
-		transform: scale(0.3);
-		-webkit-transform: scale(0.3);
+		transform: scale(1.1);
 		opacity: 0.3;
 	}
 
 	75% {
-		transform: scale(0.5);
-		-webkit-transform: scale(0.5);
+		transform: scale(1.2);
 		opacity: 0.5;
 	}
 
 	100% {
-		transform: scale(0.8);
-		-webkit-transform: scale(0.8);
+		transform: scale(1.3);
 		opacity: 0;
 	}
 }
 
-@keyframes 'warn' {
+@keyframes warn2 {
 	0% {
-		transform: scale(0);
-		-webkit-transform: scale(0);
+		transform: scale(1.4);
 		opacity: 0;
 	}
 
 	25% {
-		transform: scale(0);
-		-webkit-transform: scale(0);
+		transform: scale(1.6);
 		opacity: 0.1;
 	}
 
 	50% {
-		transform: scale(0.1);
-		-webkit-transform: scale(0.1);
+		transform: scale(1.8);
 		opacity: 0.3;
 	}
 
 	75% {
-		transform: scale(0.5);
-		-webkit-transform: scale(0.5);
+		transform: scale(2);
 		opacity: 0.5;
 	}
 
 	100% {
-		transform: scale(1);
-		-webkit-transform: scale(1);
+		transform: scale(3);
 		opacity: 0;
 	}
 }
