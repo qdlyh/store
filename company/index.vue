@@ -11,25 +11,25 @@
 					<div class="box">
 						<h1>系统性能分析平台</h1>
 						<div class="text">
-							<span>子系统</span>
-							<span>子系统</span>
-							<span>子系统</span>
+							<span><i>子系统</i></span>
+							<span><i>子系统</i></span>
+							<span><i>子系统</i></span>
 						</div>
 					</div>
 					<!--外圈标记 -->
-					<div class="radio" style="left:20px;top:-130px"></div>
-					<div class="radio" style="right:5px;top:-130px"></div>
-					<div class="radio" style="right:-130px;top:0px"></div>
-					<div class="radio" style="right:0px;bottom:-130px"></div>
-					<div class="radio" style="left:-5px;bottom:-130px"></div>
-					<div class="radio" style="left:-130px;top:15px"></div>
+					<div class="radio" style="left:-25px;top:-230px"></div>
+					<div class="radio" style="right:-50px;top:-235px"></div>
+					<div class="radio" style="right:-125px;top:-0px"></div>
+					<div class="radio" style="right:-40px;bottom:-225px"></div>
+					<div class="radio" style="left:-20px;bottom:-225px"></div>
+					<div class="radio" style="left:-125px;top:10px"></div>
 					<!-- 内圈标记 -->
-					<div class="radio" style="left:30px;top:-10px"></div>
-					<div class="radio" style="right:30px;top:-10px"></div>
-					<div class="radio" style="right:-20px;top:65px;"></div>
-					<div class="radio" style="left:-20px; top:65px;"></div>
-					<div class="radio" style="left:20px;top:120px;"></div>
-					<div class="radio" style="right:35px;top:120px;"></div>
+					<div class="radio" style="left:15px;top:0px"></div>
+					<div class="radio" style="right:15px;top:0px"></div>
+					<div class="radio" style="right:-15px;top:57px;"></div>
+					<div class="radio" style="left:-12px; top:60px;"></div>
+					<div class="radio" style="left:20px;top:115px;"></div>
+					<div class="radio" style="right:13px;top:110px;"></div>
 				</div>
 				<div class="pulse"></div>
 				<div class="pulse1"></div>
@@ -53,23 +53,23 @@ export default {
         myCanvas.height = height;
         var ctx = myCanvas.getContext("2d");
         //顺时针线条
-        ctx.moveTo(150, 120);
-        ctx.lineTo(140, 0);
+        ctx.moveTo(130, 265);
+        ctx.lineTo(90, 30);
 
-        ctx.moveTo(200, 120);
-        ctx.lineTo(220, 0);
+        ctx.moveTo(220, 260);
+        ctx.lineTo(280, 30);
 
-        ctx.moveTo(260, 180);
-        ctx.lineTo(550, 10);
+        ctx.moveTo(260, 320);
+        ctx.lineTo(550, 170);
 
-        ctx.moveTo(200, 250);
-        ctx.lineTo(270, 500);
+        ctx.moveTo(220, 370);
+        ctx.lineTo(270, 600);
 
-        ctx.moveTo(140, 250);
-        ctx.lineTo(90, 500);
+        ctx.moveTo(135, 380);
+        ctx.lineTo(100, 600);
 
-        ctx.moveTo(90, 180);
-        ctx.lineTo(0, 140);
+        ctx.moveTo(100, 325);
+        ctx.lineTo(0, 280);
 
         ctx.strokeStyle = "#5385ff";
         ctx.stroke();
@@ -114,8 +114,8 @@ export default {
 
 .box {
 	position: absolute;
-	top: -300px;
-	left: -400px;
+	top: -310px;
+	left: -520px;
 	min-width: 500px;
 	min-height: 200px;
 	opacity: 0.7;
@@ -163,21 +163,24 @@ export default {
 				border-radius: 50%;
 				margin-right: 10px;
 			}
+			i{
+				cursor pointer
+			}
 		}
 	}
 }
 
 .radio {
 	position: absolute;
-	width: 28px;
-	height: 28px;
+	width: 23px;
+	height: 23px;
 	background-color: rgb(83, 133, 255);
 	border: 6px solid rgb(203, 221, 255);
 	border-radius: 50%;
 }
 
 #myCanvas {
-	height: 350px;
+	height: 650px;
 	width: 350px;
 	position: absolute;
 	left: 0;
@@ -266,19 +269,9 @@ export default {
 		opacity: 0;
 	}
 
-	25% {
-		transform: scale(0.4);
-		opacity: 0.1;
-	}
-
 	50% {
 		transform: scale(0.5);
 		opacity: 0.3;
-	}
-
-	75% {
-		transform: scale(0.6);
-		opacity: 0.5;
 	}
 
 	100% {
@@ -289,50 +282,30 @@ export default {
 
 @keyframes warn1 {
 	0% {
-		transform: scale(0.9);
+		transform: scale(0.8);
 		opacity: 0;
 	}
 
-	25% {
-		transform: scale(1);
-		opacity: 0.1;
-	}
-
 	50% {
-		transform: scale(1.1);
+		transform: scale(1);
 		opacity: 0.3;
 	}
 
-	75% {
-		transform: scale(1.2);
-		opacity: 0.5;
-	}
-
 	100% {
-		transform: scale(1.3);
+		transform: scale(2);
 		opacity: 0;
 	}
 }
 
 @keyframes warn2 {
 	0% {
-		transform: scale(1.4);
+		transform: scale(1.5);
 		opacity: 0;
 	}
 
-	25% {
-		transform: scale(1.6);
-		opacity: 0.1;
-	}
-
 	50% {
-		transform: scale(1.8);
-		opacity: 0.3;
-	}
-
-	75% {
 		transform: scale(2);
-		opacity: 0.5;
+		opacity: 0.3;
 	}
 
 	100% {
