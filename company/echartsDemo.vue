@@ -1,130 +1,426 @@
-<template>
-    <div class="hello">
-        <div class="page">
-            <input type="number" v-model="num" @keyup.enter="jup()">
-            <span @click="jup">跳页</span>
-            <span>
-                <i>{{page}}</i>
-                <i>{{total}}</i>
-            </span>
-            <button @click="btn">-</button>
-            <button @click="btns">+</button>
-        </div>
-        <Button type="error" @click="isShow">Error</Button>
-
-        <div id="main" style="width: 600px;height:400px;" v-show="show"></div>
-
-        <div id="mains" style="width: 800px;height:600px;" v-show="!show"></div>
-
-        <Tabs value="name1">
-            <TabPane label="标签一" name="name1">标签一的内容</TabPane>
-            <TabPane label="标签二" name="name2">标签二的内容</TabPane>
-            <TabPane label="标签三" name="name3">标签三的内容</TabPane>
-        </Tabs>
-    </div>
-</template>
-
-<script>
-// 引入 ECharts 主模块
-var echarts = require("echarts/lib/echarts");
-export default {
-    name: "HelloWorld",
-    data() {
-        return {
-            myChart: null,
-            show: true,
-            num: 1,
-            page: 1,
-            total: 10,
-            theme1: "light"
-        };
-    },
-    mounted() {
-        // 引入柱状图
-        require("echarts/lib/chart/bar");
-        // 引入提示框和标题组件
-        require("echarts/lib/component/tooltip");
-        require("echarts/lib/component/title");
-        this.harts();
-    },
-    watch: {
-        num(val) {
-            this.num = this.num.replace(/\D|^0/g, "1");
-        },
-        show() {
-            if (this.show) {
-                this.myChart = echarts.init(document.getElementById("main"));
-            } else {
-                this.myChart = echarts.init(document.getElementById("mains"));
-            }
-            this.harts();
+var size = 80;
+var size1 = 50;
+var yy = 200;
+var yy1 = 250;
+option = {
+    title: {
+        text: "人员技能关系图",
+        top: "top",
+        left: "left",
+        textStyle: {
+            color: '#f7f7f7'
         }
     },
-    methods: {
-        btn() {
-            if (this.page > 1) {
-                this.page--;
+    tooltip: {
+        formatter: '{b}'
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            restore: {
+                show: true
+            },
+            saveAsImage: {
+                show: true
             }
-        },
-        btns() {
-            if (this.page < this.total) {
-                this.page++;
-            }
-        },
-        jup(e) {
-            if (this.num > this.total) {
-                this.page = this.total;
-            } else {
-                this.page = this.num;
-            }
-        },
-        isShow() {
-            this.show = !this.show;
-        },
-        harts() {
-            if (this.show) {
-                this.myChart = echarts.init(document.getElementById("main"));
-            }
-            // 绘制图表
-            this.myChart.setOption({
-                title: {
-                    text: "ECharts 入门示例"
-                },
-                tooltip: {},
-                xAxis: {
-                    data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-                },
-                yAxis: {},
-                series: [
-                    {
-                        name: "销量",
-                        type: "bar",
-                        data: [5, 20, 36, 10, 10, 20]
-                    }
-                ]
-            });
         }
-    }
+    },
+    backgroundColor: '#337ab7',
+    animationDuration: 1000,
+    animationEasingUpdate: 'quinticInOut',
+    series: [{
+        name: '知识体系',
+        type: 'graph',
+        layout: 'force',
+        force: {
+            repulsion: 60,
+            gravity: 0.1,
+            edgeLength: 30,
+            layoutAnimation: true,
+        },
+        data: [{
+            "name": "BigData",
+            x: 0,
+            y: yy,
+            "symbolSize": 100,
+            "category": "BigData",
+            "draggable": "true"
+        }, {
+            "name": "Hadoop",
+            x: 10,
+            y: yy1,
+            "symbolSize": size,
+            "category": "Hadoop",
+            "draggable": "true"
+
+        }, {
+            "name": "HDFS",
+            x: 20,
+            y: yy,
+            "symbolSize": size1,
+            "category": "Hadoop",
+            "draggable": "true"
+        }, {
+            x: 30,
+            y: yy1,
+            "name": "MapReduce",
+            "symbolSize": size1,
+            "category": "Hadoop",
+            "draggable": "true"
+        }, {
+            x: 40,
+            y: yy,
+            "name": "YARN",
+            "symbolSize": size1,
+            "category": "Hadoop",
+            "draggable": "true",
+            "value": 1
+        }, {
+            x: 50,
+            y: yy1,
+            "name": "HBase",
+            "symbolSize": size,
+            "category": "HBase",
+            "draggable": "true"
+        }, {
+            x: 60,
+            y: yy,
+            "name": "Zookeeper",
+            "symbolSize": size1,
+            "category": "其它组件",
+            "draggable": "true"
+        }, {
+            x: 70,
+            y: yy1,
+            "name": "Hive",
+            "symbolSize": size1,
+            "category": "HBase",
+            "draggable": "true"
+        }, {
+            x: 80,
+            y: yy,
+            "name": "Spark",
+            "symbolSize": size,
+            "category": "Spark",
+            "draggable": "true"
+        }, {
+            x: 90,
+            y: yy1,
+            "name": "Scala",
+            "symbolSize": size1,
+            "category": "Spark",
+            "draggable": "true"
+        }, {
+            x: 100,
+            y: yy,
+            "name": "Spark SQL",
+            "symbolSize": size1,
+            "category": "Spark",
+            "draggable": "true"
+        }, {
+            x: 110,
+            y: yy1,
+            "name": "Spark Streaming",
+            "symbolSize": size1,
+            "category": "Spark",
+            "draggable": "true"
+        }, {
+            x: 120,
+            y: yy,
+            "name": "Storm",
+            "symbolSize": size,
+            "category": "Storm",
+            "draggable": "true"
+        }, {
+            x: 130,
+            y: yy1,
+            "name": "其它组件",
+            "symbolSize": size,
+            "category": "其它组件",
+            "draggable": "true"
+        }, {
+            x: 140,
+            y: yy,
+            "name": "Flume",
+            "symbolSize": size1,
+            "category": "其它组件",
+            "draggable": "true"
+        }, {
+            x: 150,
+            y: yy1,
+            "name": "Kafka",
+            "symbolSize": size1,
+            "category": "其它组件",
+            "draggable": "true"
+        }, {
+            x: 160,
+            y: yy,
+            "name": "Pig",
+            "symbolSize": size1,
+            "category": "HBase",
+            "draggable": "true"
+        }, {
+            x: 170,
+            y: yy1,
+            "name": "NoSQL",
+            "symbolSize": size,
+            "category": "NoSQL",
+            "draggable": "true"
+        }, {
+            x: 180,
+            y: yy,
+            "name": "Redis",
+            "symbolSize": size1,
+            "category": "NoSQL",
+            "draggable": "true"
+        }, {
+            x: 190,
+            y: yy1,
+            "name": "MongoDB",
+            "symbolSize": size1,
+            "category": "NoSQL",
+            "draggable": "true"
+        }, {
+            x: 200,
+            y: yy,
+            "name": "LevelDB",
+            "symbolSize": size1,
+            "category": "NoSQL",
+            "draggable": "true"
+        }, {
+            x: 210,
+            y: yy1,
+            "name": "数据挖掘",
+            "symbolSize": size,
+            "category": "数据挖掘",
+            "draggable": "true",itemStyle: {
+                normal: {
+                    borderColor: '#fff',
+                    color: 'green',
+                    borderWidth: 1,
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0, 0, 0, 0.7)'
+                }
+            },
+        }, {
+            x: 220,
+            y: yy,
+            "name": "Mahout",
+            "symbolSize": size1,
+            "category": "数据挖掘",
+            "draggable": "true"
+        }, {
+            x: 230,
+            y: yy1,
+            "name": "Spark MLlib",
+            "symbolSize": size1,
+            "category": "数据挖掘",
+            "draggable": "true",
+        }, {
+            x: 240,
+            y: yy,
+            "name": "Python",
+            "symbolSize": size1,
+            "category": "数据挖掘",
+            "draggable": "true"
+        }, {
+            x: 250,
+            y: yy1,
+            "name": "R语言",
+            "symbolSize": size1,
+            "category": "数据挖掘",
+            "draggable": "true"
+        }, {
+            x: 260,
+            y: yy,
+            "name": "行业应用",
+            "symbolSize": size,
+            "category": "行业应用",
+            "draggable": "true"
+        }, {
+            x: 270,
+            y: yy1,
+            "name": "交通大数据",
+            "symbolSize": size1,
+            "category": "行业应用",
+            "draggable": "true"
+        }, {
+            x: 280,
+            y: yy,
+            "name": "搜索引擎",
+            "symbolSize": size1,
+            "category": "行业应用",
+            "draggable": "true"
+        }, {
+            x: 290,
+            y: yy1,
+            "name": "精确营销",
+            "symbolSize": size1,
+            "category": "行业应用",
+            "draggable": "true"
+        }, {
+            x: 300,
+            y: yy,
+            "name": "环境大数据",
+            "symbolSize": size1,
+            "category": "行业应用",
+            "draggable": "true"
+        }, {
+            x: 310,
+            y: yy1,
+            "name": "物联网",
+            "symbolSize": size1,
+            "category": "行业应用",
+            "draggable": "true"
+        }, {
+            x: 320,
+            y: yy,
+            "name": "银行贷款风险评估",
+            "symbolSize": size1,
+            "category": "行业应用",
+            "draggable": "true"
+        }],
+        links: [{
+            "source": "BigData",
+            "target": "Hadoop"
+        }, {
+            "source": "BigData",
+            "target": "Spark"
+        }, {
+            "source": "BigData",
+            "target": "Storm"
+        }, {
+            "source": "BigData",
+            "target": "其它组件"
+        }, {
+            "source": "BigData",
+            "target": "NoSQL"
+        }, {
+            "source": "BigData",
+            "target": "数据挖掘"
+        }, {
+            "source": "BigData",
+            "target": "行业应用"
+        }, {
+            "source": "Hadoop",
+            "target": "HDFS"
+        }, {
+            "source": "Hadoop",
+            "target": "YARN"
+        }, {
+            "source": "Hadoop",
+            "target": "MapReduce"
+        }, {
+            "source": "HBase",
+            "target": "Hive"
+        }, {
+            "source": "Hadoop",
+            "target": "HBase"
+        }, {
+            "source": "其它组件",
+            "target": "Zookeeper"
+        }, {
+            "source": "Spark",
+            "target": "Scala"
+        }, {
+            "source": "Spark",
+            "target": "Spark SQL"
+        }, {
+            "source": "Spark",
+            "target": "Spark Streaming"
+        }, {
+            "source": "其它组件",
+            "target": "Flume"
+        }, {
+            "source": "其它组件",
+            "target": "Kafka"
+        }, {
+            "source": "HBase",
+            "target": "Pig"
+        }, {
+            "source": "NoSQL",
+            "target": "Redis"
+        }, {
+            "source": "NoSQL",
+            "target": "MongoDB"
+        }, {
+            "source": "NoSQL",
+            "target": "LevelDB"
+        }, {
+            "source": "数据挖掘",
+            "target": "Mahout"
+        }, {
+            "source": "数据挖掘",
+            "target": "Spark MLlib"
+        }, {
+            "source": "数据挖掘",
+            "target": "Python"
+        }, {
+            "source": "数据挖掘",
+            "target": "R语言"
+        }, {
+            "source": "行业应用",
+            "target": "交通大数据"
+        }, {
+            "source": "行业应用",
+            "target": "搜索引擎"
+        }, {
+            "source": "行业应用",
+            "target": "精确营销"
+        }, {
+            "source": "行业应用",
+            "target": "环境大数据"
+        }, {
+            "source": "行业应用",
+            "target": "物联网"
+        }, {
+            "source": "行业应用",
+            "target": "银行贷款风险评估"
+        }],
+        categories: [{
+            'name': 'BigData',itemStyle: {
+                normal: {
+                    borderColor: '#fff',
+                    color: 'green',
+                    borderWidth: 1,
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0, 0, 0, 0.7)'
+                }
+            },
+        }, {
+            'name': 'Hadoop'
+        }, {
+            'name': 'HBase'
+        }, {
+            'name': 'Spark'
+        }, {
+            'name': 'Storm'
+        }, {
+            'name': '其它组件'
+        }, {
+            'name': 'NoSQL'
+        }, {
+            'name': '数据挖掘'
+        }, {
+            'name': '行业应用'
+        }],
+        roam: false,
+        label: {
+            normal: {
+                show: true,
+                position: 'inside',
+                formatter: '{b}',
+                fontSize: 16,
+                fontStyle: '600',
+            }
+        },
+        lineStyle: {
+            normal: {
+                width: 4,
+                color: 'source',
+                curveness: 0,
+                type: "solid"
+            }
+        }
+    }]
 };
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.page {
-}
-h1,
-h2 {
-    font-weight: normal;
-}
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-li {
-    display: inline-block;
-    margin: 0 10px;
-}
-a {
-    color: #42b983;
-}
-</style>
