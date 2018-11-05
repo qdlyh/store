@@ -1,426 +1,354 @@
-var size = 80;
-var size1 = 50;
-var yy = 200;
-var yy1 = 250;
-option = {
-    title: {
-        text: "人员技能关系图",
-        top: "top",
-        left: "left",
-        textStyle: {
-            color: '#f7f7f7'
+<style scoped lang="less">
+.index {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    h1 {
+        height: 150px;
+        img {
+            height: 100%;
+        }
+    }
+    h2 {
+        color: #666;
+        margin-bottom: 200px;
+        p {
+            margin: 0 0 50px;
+        }
+    }
+    .ivu-row-flex {
+        height: 100%;
+    }
+}
+</style>
+<template>
+    <div class="index">
+        <div v-for="(items,index) in cityListBox" :key="index">
+            <Select v-for="(selects,index) in items.childr" :key="index" v-model="selects.model1" @on-change="selectBtn" style="width:200px">
+                <Option v-for="item in selects.cityList" :value="item.value" :key="item.value">{{ item.value }}</Option>
+            </Select>
+            <div @click="add(items)">++</div>
+            <div @click="btn(items)">--</div>
+        </div>
+        <Row type="flex" justify="center" align="middle">
+            <Col span="24">
+            <h1>
+                <img src="../images/logo.png">
+            </h1>
+            <h2>
+                <p>Welcome to your iView app!</p>
+                <Button @click="handleStart">Start iView</Button>
+            </h2>
+            </Col>
+        </Row>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            cityListBox: [
+                {
+                    childr: [
+                        {
+                               model1: [],
+                            cityList: [
+                                {
+                                    value: "New York000000000",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "London",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        },
+                        {
+                               model1: [],
+                            cityList: [
+                                {
+                                    value: "New York111111111111111",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "Londonxxxxxxxxxxxxx",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        },
+                        {
+                               model1: [],
+                            cityList: [
+                                {
+                                    value: "New York222222222",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "Londonxxxxxxxxxxxxx",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                                {
+                    childr: [
+                        {
+                            model1: [],
+                            cityList: [
+                                {
+                                    value: "New York000000000",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "London",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        },
+                        {
+                            cityList: [
+                                {
+                                    value: "New York111111111111111",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "Londonxxxxxxxxxxxxx",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        },
+                        {
+                            cityList: [
+                                {
+                                    value: "New York222222222",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "Londonxxxxxxxxxxxxx",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            // model1: [],
+            data: {
+                    childr: [
+                        {
+                            cityList: [
+                                {
+                                    value: "New York000000000",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "London",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        },
+                        {
+                            cityList: [
+                                {
+                                    value: "New York111111111111111",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "Londonxxxxxxxxxxxxx",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        },
+                        {
+                            cityList: [
+                                {
+                                    value: "New York222222222",
+                                    label: "New York"
+                                },
+                                {
+                                    value: "Londonxxxxxxxxxxxxx",
+                                    label: "London"
+                                },
+                                {
+                                    value: "Sydney",
+                                    label: "Sydney"
+                                },
+                                {
+                                    value: "Ottawa",
+                                    label: "Ottawa"
+                                },
+                                {
+                                    value: "Paris",
+                                    label: "Paris"
+                                },
+                                {
+                                    value: "Canberra",
+                                    label: "Canberra"
+                                }
+                            ]
+                        }
+                    ]
+                },
+        };
+    },
+    watch: {
+        model1(data) {
+            console.log(data);
         }
     },
-    tooltip: {
-        formatter: '{b}'
-    },
-    toolbox: {
-        show: true,
-        feature: {
-            restore: {
-                show: true
-            },
-            saveAsImage: {
-                show: true
-            }
-        }
-    },
-    backgroundColor: '#337ab7',
-    animationDuration: 1000,
-    animationEasingUpdate: 'quinticInOut',
-    series: [{
-        name: '知识体系',
-        type: 'graph',
-        layout: 'force',
-        force: {
-            repulsion: 60,
-            gravity: 0.1,
-            edgeLength: 30,
-            layoutAnimation: true,
-        },
-        data: [{
-            "name": "BigData",
-            x: 0,
-            y: yy,
-            "symbolSize": 100,
-            "category": "BigData",
-            "draggable": "true"
-        }, {
-            "name": "Hadoop",
-            x: 10,
-            y: yy1,
-            "symbolSize": size,
-            "category": "Hadoop",
-            "draggable": "true"
-
-        }, {
-            "name": "HDFS",
-            x: 20,
-            y: yy,
-            "symbolSize": size1,
-            "category": "Hadoop",
-            "draggable": "true"
-        }, {
-            x: 30,
-            y: yy1,
-            "name": "MapReduce",
-            "symbolSize": size1,
-            "category": "Hadoop",
-            "draggable": "true"
-        }, {
-            x: 40,
-            y: yy,
-            "name": "YARN",
-            "symbolSize": size1,
-            "category": "Hadoop",
-            "draggable": "true",
-            "value": 1
-        }, {
-            x: 50,
-            y: yy1,
-            "name": "HBase",
-            "symbolSize": size,
-            "category": "HBase",
-            "draggable": "true"
-        }, {
-            x: 60,
-            y: yy,
-            "name": "Zookeeper",
-            "symbolSize": size1,
-            "category": "其它组件",
-            "draggable": "true"
-        }, {
-            x: 70,
-            y: yy1,
-            "name": "Hive",
-            "symbolSize": size1,
-            "category": "HBase",
-            "draggable": "true"
-        }, {
-            x: 80,
-            y: yy,
-            "name": "Spark",
-            "symbolSize": size,
-            "category": "Spark",
-            "draggable": "true"
-        }, {
-            x: 90,
-            y: yy1,
-            "name": "Scala",
-            "symbolSize": size1,
-            "category": "Spark",
-            "draggable": "true"
-        }, {
-            x: 100,
-            y: yy,
-            "name": "Spark SQL",
-            "symbolSize": size1,
-            "category": "Spark",
-            "draggable": "true"
-        }, {
-            x: 110,
-            y: yy1,
-            "name": "Spark Streaming",
-            "symbolSize": size1,
-            "category": "Spark",
-            "draggable": "true"
-        }, {
-            x: 120,
-            y: yy,
-            "name": "Storm",
-            "symbolSize": size,
-            "category": "Storm",
-            "draggable": "true"
-        }, {
-            x: 130,
-            y: yy1,
-            "name": "其它组件",
-            "symbolSize": size,
-            "category": "其它组件",
-            "draggable": "true"
-        }, {
-            x: 140,
-            y: yy,
-            "name": "Flume",
-            "symbolSize": size1,
-            "category": "其它组件",
-            "draggable": "true"
-        }, {
-            x: 150,
-            y: yy1,
-            "name": "Kafka",
-            "symbolSize": size1,
-            "category": "其它组件",
-            "draggable": "true"
-        }, {
-            x: 160,
-            y: yy,
-            "name": "Pig",
-            "symbolSize": size1,
-            "category": "HBase",
-            "draggable": "true"
-        }, {
-            x: 170,
-            y: yy1,
-            "name": "NoSQL",
-            "symbolSize": size,
-            "category": "NoSQL",
-            "draggable": "true"
-        }, {
-            x: 180,
-            y: yy,
-            "name": "Redis",
-            "symbolSize": size1,
-            "category": "NoSQL",
-            "draggable": "true"
-        }, {
-            x: 190,
-            y: yy1,
-            "name": "MongoDB",
-            "symbolSize": size1,
-            "category": "NoSQL",
-            "draggable": "true"
-        }, {
-            x: 200,
-            y: yy,
-            "name": "LevelDB",
-            "symbolSize": size1,
-            "category": "NoSQL",
-            "draggable": "true"
-        }, {
-            x: 210,
-            y: yy1,
-            "name": "数据挖掘",
-            "symbolSize": size,
-            "category": "数据挖掘",
-            "draggable": "true",itemStyle: {
-                normal: {
-                    borderColor: '#fff',
-                    color: 'green',
-                    borderWidth: 1,
-                    shadowBlur: 10,
-                    shadowColor: 'rgba(0, 0, 0, 0.7)'
-                }
-            },
-        }, {
-            x: 220,
-            y: yy,
-            "name": "Mahout",
-            "symbolSize": size1,
-            "category": "数据挖掘",
-            "draggable": "true"
-        }, {
-            x: 230,
-            y: yy1,
-            "name": "Spark MLlib",
-            "symbolSize": size1,
-            "category": "数据挖掘",
-            "draggable": "true",
-        }, {
-            x: 240,
-            y: yy,
-            "name": "Python",
-            "symbolSize": size1,
-            "category": "数据挖掘",
-            "draggable": "true"
-        }, {
-            x: 250,
-            y: yy1,
-            "name": "R语言",
-            "symbolSize": size1,
-            "category": "数据挖掘",
-            "draggable": "true"
-        }, {
-            x: 260,
-            y: yy,
-            "name": "行业应用",
-            "symbolSize": size,
-            "category": "行业应用",
-            "draggable": "true"
-        }, {
-            x: 270,
-            y: yy1,
-            "name": "交通大数据",
-            "symbolSize": size1,
-            "category": "行业应用",
-            "draggable": "true"
-        }, {
-            x: 280,
-            y: yy,
-            "name": "搜索引擎",
-            "symbolSize": size1,
-            "category": "行业应用",
-            "draggable": "true"
-        }, {
-            x: 290,
-            y: yy1,
-            "name": "精确营销",
-            "symbolSize": size1,
-            "category": "行业应用",
-            "draggable": "true"
-        }, {
-            x: 300,
-            y: yy,
-            "name": "环境大数据",
-            "symbolSize": size1,
-            "category": "行业应用",
-            "draggable": "true"
-        }, {
-            x: 310,
-            y: yy1,
-            "name": "物联网",
-            "symbolSize": size1,
-            "category": "行业应用",
-            "draggable": "true"
-        }, {
-            x: 320,
-            y: yy,
-            "name": "银行贷款风险评估",
-            "symbolSize": size1,
-            "category": "行业应用",
-            "draggable": "true"
-        }],
-        links: [{
-            "source": "BigData",
-            "target": "Hadoop"
-        }, {
-            "source": "BigData",
-            "target": "Spark"
-        }, {
-            "source": "BigData",
-            "target": "Storm"
-        }, {
-            "source": "BigData",
-            "target": "其它组件"
-        }, {
-            "source": "BigData",
-            "target": "NoSQL"
-        }, {
-            "source": "BigData",
-            "target": "数据挖掘"
-        }, {
-            "source": "BigData",
-            "target": "行业应用"
-        }, {
-            "source": "Hadoop",
-            "target": "HDFS"
-        }, {
-            "source": "Hadoop",
-            "target": "YARN"
-        }, {
-            "source": "Hadoop",
-            "target": "MapReduce"
-        }, {
-            "source": "HBase",
-            "target": "Hive"
-        }, {
-            "source": "Hadoop",
-            "target": "HBase"
-        }, {
-            "source": "其它组件",
-            "target": "Zookeeper"
-        }, {
-            "source": "Spark",
-            "target": "Scala"
-        }, {
-            "source": "Spark",
-            "target": "Spark SQL"
-        }, {
-            "source": "Spark",
-            "target": "Spark Streaming"
-        }, {
-            "source": "其它组件",
-            "target": "Flume"
-        }, {
-            "source": "其它组件",
-            "target": "Kafka"
-        }, {
-            "source": "HBase",
-            "target": "Pig"
-        }, {
-            "source": "NoSQL",
-            "target": "Redis"
-        }, {
-            "source": "NoSQL",
-            "target": "MongoDB"
-        }, {
-            "source": "NoSQL",
-            "target": "LevelDB"
-        }, {
-            "source": "数据挖掘",
-            "target": "Mahout"
-        }, {
-            "source": "数据挖掘",
-            "target": "Spark MLlib"
-        }, {
-            "source": "数据挖掘",
-            "target": "Python"
-        }, {
-            "source": "数据挖掘",
-            "target": "R语言"
-        }, {
-            "source": "行业应用",
-            "target": "交通大数据"
-        }, {
-            "source": "行业应用",
-            "target": "搜索引擎"
-        }, {
-            "source": "行业应用",
-            "target": "精确营销"
-        }, {
-            "source": "行业应用",
-            "target": "环境大数据"
-        }, {
-            "source": "行业应用",
-            "target": "物联网"
-        }, {
-            "source": "行业应用",
-            "target": "银行贷款风险评估"
-        }],
-        categories: [{
-            'name': 'BigData',itemStyle: {
-                normal: {
-                    borderColor: '#fff',
-                    color: 'green',
-                    borderWidth: 1,
-                    shadowBlur: 10,
-                    shadowColor: 'rgba(0, 0, 0, 0.7)'
-                }
-            },
-        }, {
-            'name': 'Hadoop'
-        }, {
-            'name': 'HBase'
-        }, {
-            'name': 'Spark'
-        }, {
-            'name': 'Storm'
-        }, {
-            'name': '其它组件'
-        }, {
-            'name': 'NoSQL'
-        }, {
-            'name': '数据挖掘'
-        }, {
-            'name': '行业应用'
-        }],
-        roam: false,
-        label: {
-            normal: {
-                show: true,
-                position: 'inside',
-                formatter: '{b}',
-                fontSize: 16,
-                fontStyle: '600',
+    methods: {
+        selectBtn(data){
+            for(let key in this.cityListBox){
+                console.log(this.cityListBox[key])
+                // for(let keys in this.cityListBox[key].childr){
+                //     console.log(this.cityListBox[key].childr[keys])
+                // }
             }
         },
-        lineStyle: {
-            normal: {
-                width: 4,
-                color: 'source',
-                curveness: 0,
-                type: "solid"
-            }
+        add(items){
+            this.cityListBox.push(this.data)
+        },
+        btn(items){
+            this.cityListBox.splice(items,1)
+        },
+        handleStart() {
+            this.$Modal.info({
+                title: "Bravo",
+                content: "Now, enjoy the convenience of iView."
+            });
         }
-    }]
+    }
 };
+</script>
